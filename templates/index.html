@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Nota Final</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #eef1f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-weight: 600;
+            margin-top: 15px;
+            display: block;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 25px;
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .resultado {
+            margin-top: 20px;
+            background-color: #eaf8e5;
+            border-left: 5px solid #4CAF50;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                margin: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Nota Final</h1>
+        <form method="POST">
+            <label for="corte1">Nota del Corte 1 (20%)</label>
+            <input type="text" name="corte1" required>
+
+            <label for="corte2">Nota del Corte 2 (20%)</label>
+            <input type="text" name="corte2" required>
+
+            <label for="corte3">Nota del Corte 3 (20%)</label>
+            <input type="text" name="corte3" required>
+
+            <label for="meta">Nota Final Deseada (sobre 5.0)</label>
+            <input type="text" name="meta" required>
+
+            <button type="submit">Calcular Nota Necesaria</button>
+        </form>
+
+        {% if resultado %}
+            <div class="resultado">{{ resultado }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
